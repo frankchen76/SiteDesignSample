@@ -1,0 +1,14 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/sp/site-design-script-actions.schema.json",
+    "actions": [
+        {
+            "verb": "applyTheme",
+            "themeName": "ContosoTheme01"
+        },
+        {
+            "verb": "setSiteLogo",
+            "url": "https://publiccdn.sharepointonline.com/m365x725618.sharepoint.com/sites/ContosoAssets/OrgAssets/logo.jpg"
+        }
+    ],
+    "version": 1
+}

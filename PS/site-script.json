@@ -1,0 +1,19 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/sp/site-design-script-actions.schema.json",
+    "actions": [
+        {
+            "verb": "applyTheme",
+            "themeName": "AES"
+        },
+        {
+            "verb": "triggerFlow",
+            "url": "https://prod-21.westcentralus.logic.azure.com:443/workflows/7d84b43e32b6415c9e4825b886682729/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=sNdFlR9LWbVNKJ_esNcx-6UeCmdMbPkRksMXFTLMN5c",
+            "name": "Update the site logo Flow",
+            "parameters": {
+                "event": "site creation",
+                "product": "SharePoint Online"
+            }
+        }
+    ],
+    "version": 1
+}

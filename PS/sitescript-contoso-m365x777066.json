@@ -1,0 +1,55 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/sp/site-design-script-actions.schema.json",
+    "actions": [
+        {
+            "verb": "applyTheme",
+            "themeName": "ContosoTheme01"
+        },
+        {
+            "verb": "createSPList",
+            "listName": "DeptDocuments",
+            "templateType": 101,
+            "subactions": [
+                {
+                    "verb": "setDescription",
+                    "description": "This is a department document"
+                },
+                {
+                    "verb": "addSPFieldXml",
+                    "schemaXml": "<Field ID=\"{6b877e44-3a27-4360-a8ad-f134f3365fc4}\" Type=\"Choice\" DisplayName=\"Category\" Required=\"FALSE\" Format=\"Dropdown\" StaticName=\"Category\" Name=\"Category\"><Default>IT</Default><CHOICES><CHOICE>IT</CHOICE><CHOICE>HR</CHOICE><CHOICE>Legal</CHOICE><CHOICE>Engineering</CHOICE></CHOICES></Field>"
+                },
+                {
+                    "verb": "addSiteColumn",
+                    "internalName": "Category",
+                    "addToDefaultView": true
+                }
+            ]
+        },
+        {
+            "verb": "addNavLink",
+            "url": "https://m365x777066.sharepoint.com/sites/Retail",
+            "displayName": "Retail @ Global",
+            "isWebRelative": false
+        },
+        {
+            "verb": "addNavLink",
+            "url": "https://m365x777066.sharepoint.com/sites/GlobalSales",
+            "displayName": "Sales",
+            "parentDisplayName": "Retail @ Global"
+        },
+        {
+            "verb": "setSiteLogo",
+            "url": "https://m365x777066.sharepoint.com/sites/benefits/SiteAssets/logo.jpg"
+        },
+        {
+            "verb": "triggerFlow",
+            "url": "https://prod-126.westus.logic.azure.com:443/workflows/f9108c0098a543f6b5e2c9c41dcdb2b7/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=aF0585qEpDczs_sJfAdE7F-9DNt7eCoc875C2kjW1Zg",
+            "name": "Update the site logo Flow",
+            "parameters": {
+                "event": "site creation",
+                "product": "SharePoint Online"
+            }
+        }
+    ],
+    "version": 1
+}

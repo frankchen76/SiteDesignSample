@@ -5,6 +5,8 @@ $CredStoreName = "SPO-M365x725618"
 $psCred = Get-PnPStoredCredential -Name $CredStoreName -Type PSCredential
 Connect-SPOService -Url $AdminUrl -Credential $psCred
 
+Connect-PnPOnline $AdminUrl -Credentials $psCred
+
 #Get current ps running path
 $scriptFullPath = $MyInvocation.MyCommand.Path
 $scriptPath = Split-Path $scriptFullPath

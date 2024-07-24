@@ -20,10 +20,10 @@ if ($SiteScriptFile_Communication -eq "") {
 }
 
 $siteScriptJson_Team = ""
-Get-Content $SiteScriptFile_Team | Where-Object { $siteScriptJson_Team += $_ }
+$siteScriptJson_Team = Get-Content $SiteScriptFile_Team -Raw
 
 $siteScriptJson_Communication = ""
-Get-Content $SiteScriptFile_Communication | Where-Object { $siteScriptJson_Communication += $_ }
+$siteScriptJson_Communication = Get-Content $SiteScriptFile_Communication -Raw
 
 #Get Credential from Credential Store if specified
 if ($CredStoreName -ne "") {
@@ -32,7 +32,7 @@ if ($CredStoreName -ne "") {
 
 #Connect to admin url
 if ($null -eq $psCred) {
-    Connect-SPOService -Url $AdminUrl -UseWebLogin
+    Connect-SPOService -Url $AdminUrl -ModernAuth $true
 }
 else {
     Connect-SPOService -Url $AdminUrl -Credential $psCred    
